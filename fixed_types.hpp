@@ -45,7 +45,7 @@ REGISTER_UNSIGNED_ALIAS(unsigned short int)
 REGISTER_UNSIGNED_ALIAS(unsigned int)
 REGISTER_UNSIGNED_ALIAS(unsigned long long int)
 
-//Programmer defined fixed-witdh types
+//Compiler deduced fixed-witdh types
 using int8 = alias<BYTE, SIGNED>::Type;
 using uint8 = alias<BYTE, UNSIGNED>::Type;
 
