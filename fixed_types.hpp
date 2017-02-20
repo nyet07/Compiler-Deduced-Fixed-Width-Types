@@ -16,7 +16,8 @@ enum Sign {
 };
 
 //Dummy Struct Declaration to enable template Specialization
-template <size_t N, Sign S>
+//decltype operator is used to avoid having to include size_t from the Standard Library.
+template <decltype(sizeof(unsigned)) N, Sign S>
 struct alias;
 
 //Macros defining template Specializatons
@@ -57,5 +58,13 @@ using uint32 = alias<DWORD, UNSIGNED>::Type;
 
 using int64 = alias<QWORD, SIGNED>::Type;
 using uint64 = alias<QWORD, UNSIGNED>::Type;
+
+//Undefine Macro Byte to enable alias BYTE
+#undef BYTE
+using BYTE = uint8;
+
+//Undefine Macro Word to enable alias WORD
+#undef WORD
+using WORD = uint32;
 
 #endif
