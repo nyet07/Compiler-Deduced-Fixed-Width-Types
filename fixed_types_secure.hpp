@@ -53,8 +53,8 @@ REGISTER_UNSIGNED_ALIAS(unsigned long long int)
 //X is meant to be signed alias, Y is meant to be unsigned alias, Z is their intended size
 //Used to make sure aliases have intended properties
 #define VERIFY(X, Y, Z)                                                                                 \
-        static_assert(sizeof(X) == Z, #X " is not " STRINGIFY_HELPER(Z) " byte(s), FAILED");                     \
-        static_assert(sizeof(Y) == Z, #Y " is not " STRINGIFY_HELPER(Z) " byte(s), FAILED");                     \
+        static_assert(sizeof(X) == Z, #X " is not " STRINGIFY_HELPER(Z) " byte(s), FAILED");            \
+        static_assert(sizeof(Y) == Z, #Y " is not " STRINGIFY_HELPER(Z) " byte(s), FAILED");            \
         static_assert(std::is_signed<X>::value == true, #X " is not signed, FAILED");                   \
         static_assert(std::is_unsigned<Y>::value == true, #Y " is not unsigned, FAILED");
 
