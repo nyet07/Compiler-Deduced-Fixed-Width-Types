@@ -17,14 +17,15 @@ How to accomplish fixed-width types then? The header file containing typedefs th
 My implementation of fixed-width types aims to get rid of hardcoded typedefs by using compiler's ability to deduce types through template specialization and sizeof operator. Sizeof operator is used to determine size of numeric types, template specialization is used to mimic if-else statements at compile-time. Below is an example,
 
     /* 8 bit Fixed-Width types */
-    using int8 = alias<1, SIGNED>::Type;
-    using int32 = alias<4, SIGNED>::Type;
+    using int8 = alias<BYTE, SIGNED>::Type;
+    using int32 = alias<DWORD, SIGNED>::Type;
     
-BYTE is a macro that corresponds to value 1. Expression,
+BYTE and DWORD are macros that correspond to value 1 and 4. Expressions,
 
     alias<BYTE,SIGNED>::Type
+    alias<DWORD, SIGNED>::Type
     
-returns any signed numeric data type that has data size of 1 byte(8 bits). Since data sizes and types are deduced by the compiler, there is no need for hardcoded typedefs.
+return any signed numeric data type that has data size of 1 byte(8 bits) and 4 bytes(32 bits) respectively. Since data sizes and types are deduced by the compiler, there is no need for hardcoded typedefs.
 
 ###Difference Between Secure and Normal Version
 
