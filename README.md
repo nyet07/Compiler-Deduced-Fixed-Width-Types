@@ -17,8 +17,8 @@ How to accomplish fixed-width types then? The header file containing typedefs th
 My implementation of fixed-width types aims to get rid of hardcoded typedefs by using compiler's ability to deduce types through template specialization and sizeof operator. Sizeof operator is used to determine size of numeric types, template specialization is used to mimic if-else statements at compile-time. Below is an example,
 
     /* 8 bit Fixed-Width types */
-    using int8 = alias<BYTE, SIGNED>::Type;
-    using uint8 = alias<BYTE, UNSIGNED>::Type;
+    using int8 = alias<1, SIGNED>::Type;
+    using int32 = alias<4, SIGNED>::Type;
     
 BYTE is a macro that corresponds to value 1. Expression,
 
